@@ -1,0 +1,17 @@
+{
+  "name": "qrcode-main",
+  "version": "1.0.0",
+  "description": "Next.js site for Dance Classes and Event Entertainment",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^16.1.7",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+}
