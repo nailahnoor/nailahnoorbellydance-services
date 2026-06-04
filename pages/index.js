@@ -1,47 +1,39 @@
-// pages/index.js
-
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="container">
-      <div className="description-box">
-        <h1>SELECT YOUR INTEREST</h1>
+    <div className="home-background">
+      <div className="container">
 
-        <Link href="/dance-classes" className="button small-button">
-          DANCE CLASSES
-        </Link>
+        {/* LOGO OUTSIDE CARD */}
+        <a
+          href="https://www.nailahnoorbellydance.com/home"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="logo-wrapper"
+        >
+          <img
+            src="/images/nnbd-logo.png"
+            alt="Nailah Noor Belly Dance"
+            className="logo"
+          />
+        </a>
 
-        <Link href="/event-entertainment" className="button small-button">
-          EVENT ENTERTAINMENT
-        </Link>
+        {/* CARD */}
+        <div className="content-group">
 
-        {/* Social Icons */}
-        <div className="social-icons">
-          <a
-            href="https://www.instagram.com/nailahnoorbellydance/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/icons/instagram.png" alt="Instagram" className="social-icon" />
-          </a>
+          <h1>I AM A...</h1>
 
-          <a
-            href="https://www.facebook.com/profile.php?id=61554206453366"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/icons/facebook.png" alt="Facebook" className="social-icon" />
-          </a>
+          <Link href="/new-student" className="button">
+            new student
+          </Link>
 
-          <a
-            href="https://www.youtube.com/@nailahnoorbellydance"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/icons/youtube.png" alt="YouTube" className="social-icon" />
-          </a>
+          <Link href="/returning-student" className="button">
+            returning student
+          </Link>
+
         </div>
+
       </div>
     </div>
   );

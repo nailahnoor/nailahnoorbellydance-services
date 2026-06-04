@@ -1,161 +1,324 @@
-/* Global site styles */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ========================= */
+/* GLOBAL RESET
+/* ========================= */
+
+/* REMOVE ALL LINK UNDERLINES */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  text-shadow: none !important;
+}
 
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  background: linear-gradient(to bottom, #D94498 50%, #ffdd00 50%);
+  background: #ffdd00;
+  color: #0b5394;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
+/* FORCE FONT EVERYWHERE */
+button,
+input,
+select,
+textarea {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* LOWERCASE UX */
+input,
+select,
+textarea {
+  text-transform: lowercase;
+}
+
+input::placeholder,
+textarea::placeholder {
+  text-transform: lowercase;
+  color: rgba(11, 83, 148, 0.45);
+  opacity: 1;
+}
+
+/* ========================= */
+/* LAYOUT (FIXED - NO BODY FLEX)
+/* ========================= */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* MAIN CONTAINER (NOW CONTROLS CENTERING) */
 .container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 420px;
-  padding: 20px;
-  box-sizing: border-box;
+
+  padding: 24px;
 }
+
+/* CARD */
+.content-group {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+
+  border-radius: 18px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  border: 2px solid rgba(0, 187, 255, 0.25);
+}
+
+/* ========================= */
+/* LOGO
+/* ========================= */
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* TYPOGRAPHY
+/* ========================= */
 
 h1 {
+  font-size: 26px;
   font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 28px;
-  margin-bottom: 20px;
+  letter-spacing: 1px;
+  margin: 0;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #0b5394;
 }
 
-.button {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 12px;
-  background: #ff9900;
-  color: #0B5394;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 16px;
+h3 {
+  margin: 8px 0 0;
+  font-size: 14px;
   font-weight: 700;
+  color: #0b5394;
+  opacity: 0.9;
+}
+
+/* ========================= */
+/* BUTTONS
+/* ========================= */
+
+.button {
+  width: 100%;
+  padding: 14px 16px;
+
+  background: #ff9900;
+  color: #ffffff;
+
+  border: none;
+
+  border-radius: 14px;
+
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  border: 3px solid #092A49;
-  max-width: 420px;
-  transition: background 0.2s;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  box-shadow:
+    0 10px 20px rgba(255, 153, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .button:hover {
-  background: #e68a00;
+  transform: translateY(-2px);
+  background: #ffad33;
 }
 
-img {
+.button:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow:
+    0 6px 14px rgba(255, 153, 0, 0.25);
+}
+
+.button {
+  box-shadow:
+    0 6px 18px rgba(255, 153, 0, 0.25),
+    0 0 0 1px rgba(11, 83, 148, 0.15);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================= */
+/* INPUTS / SELECTS
+/* ========================= */
+
+input,
+select {
   width: 100%;
-  margin-top: 12px;
-  border-radius: 12px;
-  border: 3px solid #092A49;
-}
-
-/* Blue description box */
-.description-box {
-  background-color: #00BBFF;
-  padding: 60px 40px; /* more padding top/bottom and sides */
-  border-radius: 12px;
-  border: 3px solid #092A49;
-  margin-bottom: 24px;
-  width: 100%;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* center the buttons horizontally */
-}
-
-/* Small buttons inside the blue box */
-.small-button {
-  max-width: 240px; /* slightly wider than before */
-  width: 100%; /* fill available space inside box up to max-width */
-  margin: 12px auto; /* space between buttons */
-}
-
-/* Dance Classes page full orange background, keep image sizes the same */
-.dance-container {
-  background-color: #ff9900; /* full orange */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Button matches image width */
-.dance-button {
-  display: block;
-  background: #0B5394; /* contrasting color */
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 3px solid #092A49;
   padding: 14px;
-  margin-bottom: 16px;
-  width: 100%; /* fill container width */
-  max-width: 420px; /* same max width as images */
+
+  border-radius: 14px;
+  border: 2px solid rgba(0, 187, 255, 0.4);
+
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #0b5394;
+
+  transition: all 0.2s ease;
+}
+
+/* FOCUS */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #00bbff;
+  box-shadow: 0 0 0 3px rgba(0, 187, 255, 0.25);
+}
+
+/* FORM SPACING FIX */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ========================= */
+/* SELECT FIELD STYLE
+/* ========================= */
+
+.select-field {
+  width: 100%;
+  padding: 14px 42px 14px 14px;
+
+  border-radius: 14px;
+  border: 2px solid rgba(0, 187, 255, 0.35);
+
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #0b5394;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #00bbff 50%),
+    linear-gradient(135deg, #00bbff 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) 50%,
+    calc(100% - 16px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* ========================= */
+/* SOCIAL
+/* ========================= */
+
+.social-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b5394;
+  opacity: 0.9;
   text-align: center;
 }
 
-/* Keep current image sizes and styling exactly as before */
-.dance-container img {
-  width: 100%;
-  max-width: 420px; /* ensures same width as button */
-  border-radius: 12px;
-  border: 3px solid #092A49;
-  margin-top: 12px;
-}
-
-/* Social icons row */
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* space between icons */
-  margin-top: 24px;
-  align-items: center; /* vertical alignment */
+  gap: 16px;
 }
 
-/* Uniform size, no border/circle, 30% bigger */
 .social-icon {
-  width: 55px;       /* 30% bigger than 50px */
-  height: 55px;      /* 30% bigger */
-  border: none;      /* remove any border */
-  border-radius: 0;  /* remove circle rounding */
-  object-fit: contain; /* maintain logo proportions */
-  transition: transform 0.2s;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
 }
 
 .social-icon:hover {
-  transform: scale(1.1); /* optional hover zoom */
+  transform: scale(1.12);
 }
 
+/* ========================= */
+/* PAGE TRANSITIONS
+/* ========================= */
+
+.page {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.page-fade-out {
+  opacity: 0;
+}
+
+.page-fade-in {
+  opacity: 1;
+}
+
+/* ========================= */
+/* MOBILE
+/* ========================= */
+
 @media (max-width: 600px) {
+  .content-group {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
   h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .button {
     font-size: 14px;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px;
   }
 }
